@@ -3,7 +3,8 @@
 var paths = {
     js: ['*.js', 'server/**/*.js', 'public/**/*.js', 'test/**/*.js', '!test/coverage/**', '!public/system/lib/**', 'packages/**/*.js', '!packages/**/node_modules/**'],
     html: ['public/**/views/**', 'server/views/**', 'packages/**/public/**/views/**', 'packages/**/server/views/**'],
-    css: ['public/**/css/*.css', '!public/system/lib/**', 'packages/**/public/**/css/*.css']
+    css: ['public/**/css/*.css', '!public/system/lib/**', 'packages/**/public/**/css/*.css'],
+    sass: ['public/**/sass/*.scss', '!public/system/lib/**', 'packages/**/public/**/sass/*.scss']
 };
 
 module.exports = function(grunt) {
@@ -37,7 +38,14 @@ module.exports = function(grunt) {
                 options: {
                     livereload: true
                 }
-            }
+            },
+			sass: {
+				files: paths.sass,
+				tasks: ['sass'],
+				options: {
+					livereload: true
+				}
+			}
         },
         jshint: {
             all: {
@@ -66,6 +74,16 @@ module.exports = function(grunt) {
                 files: '<%= assets.css %>'
             }
         },
+		sass: {
+			dist: {
+				options: {
+					includePaths: require('node-bourbon').includePaths
+				},
+				files: {
+					'packages/**/public/**/sass/*.scss': 'packages/**/public/**/css/*.css'
+				}
+			}
+		},
         nodemon: {
             dev: {
                 script: 'server.js',
