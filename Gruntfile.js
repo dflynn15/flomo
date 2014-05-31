@@ -38,14 +38,7 @@ module.exports = function(grunt) {
                 options: {
                     livereload: true
                 }
-            },
-			sass: {
-				files: paths.sass,
-				tasks: ['sass'],
-				options: {
-					livereload: true
-				}
-			}
+            }
         },
         jshint: {
             all: {
@@ -74,16 +67,6 @@ module.exports = function(grunt) {
                 files: '<%= assets.css %>'
             }
         },
-		sass: {
-			dist: {
-				options: {
-					includePaths: require('node-bourbon').includePaths
-				},
-				files: {
-					'packages/**/public/**/sass/*.scss': 'packages/**/public/**/css/*.css'
-				}
-			}
-		},
         nodemon: {
             dev: {
                 script: 'server.js',

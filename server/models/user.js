@@ -47,12 +47,7 @@ var UserSchema = new Schema({
         type: String,
         default: 'local'
     },
-    salt: String,
-    facebook: {},
-    twitter: {},
-    github: {},
-    google: {},
-    linkedin: {}
+    salt: String
 });
 
 /**
@@ -91,7 +86,7 @@ UserSchema.methods = {
         var roles = this.roles;
         return roles.indexOf('admin') !== -1 || roles.indexOf(role) !== -1;
     },
-	
+
     /**
      * IsAdmin - check if the user is an administrator
      *
@@ -101,7 +96,7 @@ UserSchema.methods = {
     isAdmin: function() {
         return this.roles.indexOf('admin') !== -1;
     },
-	
+
     /**
      * Authenticate - check if the passwords are the same
      *

@@ -3,18 +3,11 @@
   "description": "MEAN.io: A fullstack javascript platformed powerd by MongoDB, ExpressJS, AngularJS, NodeJS.",
   "version": "0.3.3",
   "private": false,
-  "author": "Linnovate <mean@linnovate.net>",
-  "contributors": [
-    { "name": "Lior Kesos", "mail": "lior@linnovate.net" },
-    { "name": "Yonatan Ellman", "mail": "yonatan@linnovate.net" },
-    { "name": "Ehud Shahak", "mail": "ehud@linnovate.net" },
-    { "name": "Amos Haviv", "mail": "mail@amoshaviv" },
-    { "name": "Drew Fyock", "mail": "drew@steelbisondev.com" }
-  ],
-  "mean": "0.3.3",
+  "author": "Daniel Flynn",
+  "flomo": "0.1.0",
   "repository": {
     "type": "git",
-    "url": "https://github.com/linnovate/mean.git"
+    "url": "https://github.com/dflynn15/flomo"
   },
   "engines": {
     "node": "0.10.x",
@@ -89,6 +82,7 @@
     "node-bourbon": "~1.0.0",
     "requirejs": "^2.1.11",
     "should": "3.3.1",
-    "supertest": "0.11.0"
+    "supertest": "0.11.0",
+    "grunt-contrib-sass": "^0.7.3"
   }
 }
