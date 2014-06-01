@@ -18,6 +18,9 @@
 .account>div, .account>ul {
     text-align:left;
 }
+.navbar-inverse {
+  background-color: #47AEDE;
+}
 .navbar .nav>li>a.brand {
     padding-left:20px;
     margin-left:0

@@ -1,5 +1,12 @@
 @import 'bourbon/bourbon';
 
-body{
-	color: black;
+// Colors
+@import 'styleguide/colors';
+
+.navbar-inverse {
+	background-color: $north-blue;
+}
+
+body {
+	color: red;
 }

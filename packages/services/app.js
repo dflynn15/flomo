@@ -18,8 +18,8 @@ Services.register(function(app, auth, database) {
 
     //We are adding a link to the main menu for all authenticated users
     Services.menus.add({
-        title: 'services example page',
-        link: 'services example page',
+        title: 'Services',
+        link: 'all services',
         roles: ['authenticated'],
         menu: 'main'
     });

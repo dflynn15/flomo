@@ -38,7 +38,14 @@ module.exports = function(grunt) {
                 options: {
                     livereload: true
                 }
-            }
+            },
+			sass: {
+				files: paths.sass,
+				tasks: ['sass'],
+				options: {
+					livereload: true
+				}
+			}
         },
         jshint: {
             all: {
@@ -67,6 +74,17 @@ module.exports = function(grunt) {
                 files: '<%= assets.css %>'
             }
         },
+		sass: {
+			dist: {
+				options: {
+		        	style: 'expanded'
+		        },
+				files: {
+					'public/system/assets/css/main.css': 'public/system/assets/sass/flomo.scss',
+					'packages/services/public/assets/css/services.css': 'packages/services/public/assets/sass/services.scss',
+				}
+			}
+		},
         nodemon: {
             dev: {
                 script: 'server.js',
