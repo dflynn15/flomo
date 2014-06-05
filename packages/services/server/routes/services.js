@@ -30,5 +30,5 @@ module.exports = function(Services, app, auth, database) {
 		.delete(auth.requiresLogin, hasAuthorization, services.destroy);
 
 	// Finish with setting up the serviceId param
-    app.param('serviceId', services.services);
+    app.param('serviceId', services.service);
 };

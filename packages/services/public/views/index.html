@@ -1,6 +1,6 @@
-<div id="services-landing" data-ng-controller="ServicesController" data-ng-init="find()">
+<div id="services-landing" data-ng-controller="ServicesController" >
 
-	<div ui-calendar="uiConfig.calendar" class="span8 calendar" data-ng-model="services"></div>
+	<div ui-calendar="uiConfig.calendar" ng-model="eventSources"></div>
 
 	<h1 data-ng-hide="!services || services.length">No articles yet. <br> Why don't you <a href="/#!/services/create">Create One</a>?</h1>
 </div>
