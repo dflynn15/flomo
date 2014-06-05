@@ -1,6 +1,7 @@
 {
     "css": {
         "public/build/css/dist.min.css": [
+            "public/system/lib/fullcalendar/fullcalendar.css",
             "public/**/assets/css/*.css"
         ]
     },

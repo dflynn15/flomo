@@ -12,7 +12,6 @@ angular.module('mean.services').controller('ServicesController', ['$scope', '$st
 	    var m = date.getMonth();
 	    var y = date.getFullYear();
 
-	    $scope.changeTo = 'Hungarian';
 	    /* event source that pulls from google.com */
 	    $scope.eventSource = {
 	            url: 'http://www.google.com/calendar/feeds/usa__en%40holiday.calendar.google.com/public/basic',
@@ -36,53 +35,12 @@ angular.module('mean.services').controller('ServicesController', ['$scope', '$st
 	      callback(events);
 	    };
 
-	    $scope.calEventsExt = {
-	       color: '#f00',
-	       textColor: 'yellow',
-	       events: [
-	          {type:'party',title: 'Lunch',start: new Date(y, m, d, 12, 0),end: new Date(y, m, d, 14, 0),allDay: false},
-	          {type:'party',title: 'Lunch 2',start: new Date(y, m, d, 12, 0),end: new Date(y, m, d, 14, 0),allDay: false},
-	          {type:'party',title: 'Click for Google',start: new Date(y, m, 28),end: new Date(y, m, 29),url: 'http://google.com/'}
-	        ]
-	    };
 	    /* alert on eventClick */
 	    $scope.alertOnEventClick = function( event, allDay, jsEvent, view ){
 	        $scope.alertMessage = (event.title + ' was clicked ');
 	    };
-	    /* alert on Drop */
-	     $scope.alertOnDrop = function(event, dayDelta, minuteDelta, allDay, revertFunc, jsEvent, ui, view){
-	       $scope.alertMessage = ('Event Droped to make dayDelta ' + dayDelta);
-	    };
-	    /* alert on Resize */
-	    $scope.alertOnResize = function(event, dayDelta, minuteDelta, revertFunc, jsEvent, ui, view ){
-	       $scope.alertMessage = ('Event Resized to make dayDelta ' + minuteDelta);
-	    };
-	    /* add and removes an event source of choice */
-	    $scope.addRemoveEventSource = function(sources,source) {
-	      var canAdd = 0;
-	      angular.forEach(sources,function(value, key){
-	        if(sources[key] === source){
-	          sources.splice(key,1);
-	          canAdd = 1;
-	        }
-	      });
-	      if(canAdd === 0){
-	        sources.push(source);
-	      }
-	    };
-	    /* add custom event*/
-	    $scope.addEvent = function() {
-	      $scope.events.push({
-	        title: 'Open Sesame',
-	        start: new Date(y, m, 28),
-	        end: new Date(y, m, 29),
-	        className: ['openSesame']
-	      });
-	    };
-	    /* remove event */
-	    $scope.remove = function(index) {
-	      $scope.events.splice(index,1);
-	    };
+
+
 	    /* Change View */
 	    $scope.changeView = function(view,calendar) {
 	      calendar.fullCalendar('changeView',view);
@@ -99,9 +57,9 @@ angular.module('mean.services').controller('ServicesController', ['$scope', '$st
 	        height: 450,
 	        editable: true,
 	        header:{
-	          left: 'title',
-	          center: '',
-	          right: 'today prev,next'
+	          left: 'prev',
+	          center: 'title',
+	          right: 'next'
 	        },
 	        eventClick: $scope.alertOnEventClick,
 	        eventDrop: $scope.alertOnDrop,
@@ -109,19 +67,7 @@ angular.module('mean.services').controller('ServicesController', ['$scope', '$st
 	      }
 	    };
 
-	    $scope.changeLang = function() {
-	      if($scope.changeTo === 'Hungarian'){
-	        $scope.uiConfig.calendar.dayNames = ['Vasárnap', 'Hétfő', 'Kedd', 'Szerda', 'Csütörtök', 'Péntek', 'Szombat'];
-	        $scope.uiConfig.calendar.dayNamesShort = ['Vas', 'Hét', 'Kedd', 'Sze', 'Csüt', 'Pén', 'Szo'];
-	        $scope.changeTo= 'English';
-	      } else {
-	        $scope.uiConfig.calendar.dayNames = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
-	        $scope.uiConfig.calendar.dayNamesShort = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
-	        $scope.changeTo = 'Hungarian';
-	      }
-	    };
 	    /* event sources array*/
 	    $scope.eventSources = [$scope.events, $scope.eventSource, $scope.eventsF];
-	    $scope.eventSources2 = [$scope.calEventsExt, $scope.eventsF, $scope.events];
     }
 ]);
